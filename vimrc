@@ -3,7 +3,9 @@ filetype plugin indent on
 syntax on
 
 call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
 Plug 'rakr/vim-one'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 call plug#end()
 
@@ -19,6 +21,7 @@ set number relativenumber
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab autoindent smartindent
 set termguicolors
 
+let g:lightline = { 'colorscheme': 'one' }
 colorscheme one
 set background=dark
 
