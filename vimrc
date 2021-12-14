@@ -24,4 +24,10 @@ set termguicolors
 let g:lightline = { 'colorscheme': 'one' }
 colorscheme one
 set background=dark
+call one#highlight('SpellBad', '', '', 'underline')
+call one#highlight('SpellCap', '', '', 'underline')
+call one#highlight('SpellLocal', '', '', 'underline')
+call one#highlight('SpellRare', '', '', 'underline')
+" Tweak colors used by 'set list' chars. See :h listchars
+call one#highlight('SpecialKey', 'be5046', 'd19a66', '')
 
