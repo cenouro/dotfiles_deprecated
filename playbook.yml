@@ -3,6 +3,12 @@
   connection: local
   tasks:
 
+    - name: Link .gitconfig
+      ansible.builtin.file:
+        src: '{{ ansible_env.PWD }}/gitconfig'
+        dest: '{{ ansible_env.HOME }}/.gitconfig'
+        state: link
+
     - name: Link .vimrc
       ansible.builtin.file:
         src: '{{ ansible_env.PWD }}/vimrc'
