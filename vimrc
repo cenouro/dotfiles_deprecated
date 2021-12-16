@@ -17,6 +17,7 @@ set diffopt+=algorithm:patience,indent-heuristic
 set encoding=utf-8
 set hidden
 set list
+set noshowmode
 set noswapfile nobackup
 set number relativenumber
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab autoindent smartindent
