@@ -4,6 +4,7 @@ syntax on
 
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
+Plug 'pearofducks/ansible-vim'
 Plug 'rakr/vim-one'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
