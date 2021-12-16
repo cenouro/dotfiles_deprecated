@@ -23,6 +23,13 @@ set number relativenumber
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab autoindent smartindent
 set termguicolors
 
+augroup ft_git
+    autocmd!
+    autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
+    autocmd FileType gitcommit setlocal spell spelllang=en_us
+    autocmd FileType git,gitcommit,fugitive setlocal nolist
+augroup END
+
 let g:lightline = { 'colorscheme': 'one' }
 colorscheme one
 set background=dark
