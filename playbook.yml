@@ -6,13 +6,10 @@
     - HOME: '{{ ansible_env.HOME }}'
     - PWD: '{{ ansible_env.PWD }}'
 
-  tasks:
-    - name: Link .gitconfig
-      ansible.builtin.file:
-        src: '{{ PWD }}/gitconfig'
-        dest: '{{ HOME }}/.gitconfig'
-        state: link
+  roles:
+    - git
 
+  tasks:
     - name: Link .vimrc
       ansible.builtin.file:
         src: '{{ PWD }}/vimrc'
