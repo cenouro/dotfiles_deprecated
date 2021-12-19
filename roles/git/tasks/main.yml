@@ -1,7 +1,17 @@
 ---
-- name: 'git : Link .gitconfig'
+- name: 'git : Ensure config directory'
+  ansible.builtin.file:
+    path: '{{ XDG_CONFIG_HOME }}/git'
+    state: directory
+
+- name: 'git : Link gitconfig'
   ansible.builtin.file:
     src: '{{ PWD }}/gitconfig'
-    dest: '{{ HOME }}/.gitconfig'
+    dest: '{{ XDG_CONFIG_HOME }}/git/config'
     state: link
+
+- name: 'git : Enforce use of XDG config dir'
+  ansible.builtin.file:
+    path: '{{ HOME }}/.gitconfig'
+    state: absent
 ...

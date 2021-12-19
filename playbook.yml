@@ -5,6 +5,7 @@
   vars:
     - HOME: '{{ ansible_env.HOME }}'
     - PWD: '{{ ansible_env.PWD }}'
+    - XDG_CONFIG_HOME: '{{ HOME }}/.config'
 
   roles:
     - git
