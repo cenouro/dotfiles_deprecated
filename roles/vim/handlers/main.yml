@@ -1,0 +1,5 @@
+---
+- name: vim_PlugInstall
+  ansible.builtin.shell:
+    cmd: 'vim -u NORC -c"sil! source ~/.vimrc" -c"PlugInstall --sync" +qa'
+...

@@ -1,0 +1,19 @@
+---
+- name: 'vim : Link .vimrc'
+  ansible.builtin.file:
+    src: '{{ PWD }}/vimrc'
+    dest: '{{ HOME }}/.vimrc'
+    state: link
+
+- name: 'vim : Create ~/.vim/autoload (for vim-plug)'
+  ansible.builtin.file:
+    path: '{{ HOME }}/.vim/autoload'
+    state: directory
+
+- name: 'vim : Install vim-plug'
+  ansible.builtin.uri:
+    url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    dest: '{{ HOME }}/.vim/autoload/plug.vim'
+    creates: '{{ HOME }}/.vim/autoload/plug.vim'
+  notify: vim_PlugInstall
+...
