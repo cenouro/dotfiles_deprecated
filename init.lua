@@ -1,3 +1,8 @@
+require('packer').startup(function()
+    use 'wbthomason/packer.nvim'
+    use 'tpope/vim-fugitive'
+end)
+
 vim.cmd [[autocmd BufWritePre * :%s/\s\+$//e]]
 
 local opt = vim.opt
