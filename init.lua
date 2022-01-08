@@ -3,6 +3,13 @@ require('packer').startup(function()
 
     use 'tpope/vim-fugitive'
     use {
+        'itchyny/lightline.vim',
+        config = function()
+            vim.g.lightline = {colorscheme = 'one'}
+            vim.opt.showmode = false
+        end
+    }
+    use {
         'rakr/vim-one',
         config = function() vim.cmd[[
             colorscheme one | set background=dark
