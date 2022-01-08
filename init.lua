@@ -33,3 +33,12 @@ opt.swapfile = false; opt.backup = false
 opt.tabstop = 4; opt.shiftwidth = 4; opt.softtabstop = 4; opt.expandtab = true
 opt.termguicolors = true
 
+vim.cmd([[
+augroup ft_git
+    autocmd!
+    autocmd BufNewFile,BufRead gitconfig setlocal filetype=gitconfig
+    autocmd FileType gitcommit setlocal spell spelllang=en_us
+    autocmd FileType git,gitcommit,fugitive setlocal nolist
+augroup END
+]])
+
