@@ -1,6 +1,16 @@
 require('packer').startup(function()
     use 'wbthomason/packer.nvim'
+
     use 'tpope/vim-fugitive'
+    use {
+        'rakr/vim-one',
+        config = function() vim.cmd[[
+            colorscheme one | set background=dark
+            call one#highlight('SpecialKey', 'be5046', 'd19a66', '')
+            call one#highlight('Whitespace', 'be5046', 'd19a66', '')
+            ]]
+        end
+    }
 end)
 
 vim.cmd([[
