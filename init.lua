@@ -14,11 +14,10 @@ require('packer').startup(function()
     }
     use {
         'rakr/vim-one',
-        config = function() vim.cmd[[
-            colorscheme one | set background=dark
-            call one#highlight('SpecialKey', 'be5046', 'd19a66', '')
-            call one#highlight('Whitespace', 'be5046', 'd19a66', '')
-            ]]
+        config = function()
+            vim.cmd[[colorscheme one | set background=dark]]
+            vim.fn['one#highlight']('SpecialKey', 'be5046', 'd19a66', '')
+            vim.fn['one#highlight']('Whitespace', 'be5046', 'd19a66', '')
         end
     }
 end)
