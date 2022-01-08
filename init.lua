@@ -1,7 +1,10 @@
 require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
+    use 'pearofducks/ansible-vim'
     use 'tpope/vim-fugitive'
+    use 'tpope/vim-sensible'
+
     use {
         'itchyny/lightline.vim',
         config = function()
