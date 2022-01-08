@@ -3,6 +3,13 @@ require('packer').startup(function()
     use 'tpope/vim-fugitive'
 end)
 
+vim.cmd([[
+augroup packer_auto_sync
+    autocmd!
+    autocmd BufWritePost init.lua source <afile> | PackerSync
+augroup end
+]])
+
 vim.cmd [[autocmd BufWritePre * :%s/\s\+$//e]]
 
 local opt = vim.opt
