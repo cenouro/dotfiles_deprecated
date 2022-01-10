@@ -1,0 +1,24 @@
+---
+- name: 'nvim : Ensure config directory'
+  ansible.builtin.file:
+    path: '{{ XDG_CONFIG_HOME }}/nvim'
+    state: directory
+
+- name: 'nvim : Ensure packer.nvim directory'
+  ansible.builtin.file:
+    path: '{{ HOME }}/.local/share/nvim/site/pack/packer/start'
+    state: directory
+
+- name: 'nvim : Link init.lua'
+  ansible.builtin.file:
+    src: '{{ PWD }}/init.lua'
+    dest: '{{ XDG_CONFIG_HOME }}/nvim/init.lua'
+    state: link
+
+- name: 'nvim : Install packer.nvim'
+  ansible.builtin.git:
+    repo: https://github.com/wbthomason/packer.nvim
+    dest: '{{ HOME }}/.local/share/nvim/site/pack/packer/start/packer.nvim'
+    depth: 1
+  notify: nvim_PackerSync
+...

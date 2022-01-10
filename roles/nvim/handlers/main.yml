@@ -1,0 +1,5 @@
+---
+- name: nvim_PackerSync
+  ansible.builtin.shell:
+    cmd: nvim --headless -c "autocmd User PackerComplete quitall" -c PackerSync
+...
