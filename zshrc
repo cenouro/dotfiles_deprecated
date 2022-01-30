@@ -1,11 +1,10 @@
 setopt inc_append_history
 setopt share_history
 
-autoload -Uz compinit promptinit
-
-compinit
+autoload -Uz compinit; compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
 zstyle ':completion:*' menu select
 
-promptinit
-prompt suse
+autoload -Uz promptinit; promptinit; prompt suse
 

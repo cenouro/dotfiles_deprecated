@@ -1,7 +1,19 @@
 ---
-- name: 'zsh : Link .zshrc'
+- name: 'zsh : Ensure XDG directories'
   ansible.builtin.file:
-    src: '{{ PWD }}/zshrc'
-    dest: '{{ HOME }}/.zshrc'
+    path: '{{ item }}'
+    state: directory
+  loop:
+    - '{{ XDG_CACHE_HOME }}/zsh'
+    - '{{ XDG_CONFIG_HOME }}/zsh'
+    - '{{ XDG_STATE_HOME }}/zsh'
+
+- name: 'zsh : Link configuration files'
+  ansible.builtin.file:
+    src: '{{ item.src }}'
+    dest: '{{ item.dest }}'
     state: link
+  loop:
+    - { src: '{{ PWD }}/zshenv', dest: '{{ HOME }}/.zshenv' }
+    - { src: '{{ PWD }}/zshrc', dest: '{{ XDG_CONFIG_HOME }}/zsh/.zshrc' }
 ...
