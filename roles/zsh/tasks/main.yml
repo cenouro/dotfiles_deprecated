@@ -1,0 +1,7 @@
+---
+- name: 'zsh : Link .zshrc'
+  ansible.builtin.file:
+    src: '{{ PWD }}/zshrc'
+    dest: '{{ HOME }}/.zshrc'
+    state: link
+...
