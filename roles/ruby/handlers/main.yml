@@ -1,0 +1,13 @@
+---
+- name: 'ruby : Install chruby'
+  ansible.builtin.shell:
+    cmd: make install
+    chdir: '{{ PWD }}/../chruby'
+  become: yes
+
+- name: 'ruby : Install ruby-install'
+  ansible.builtin.shell:
+    cmd: make install
+    chdir: '{{ PWD }}/../ruby-install'
+  become: yes
+...

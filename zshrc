@@ -8,3 +8,6 @@ zstyle ':completion:*' menu select
 
 autoload -Uz promptinit; promptinit; prompt suse
 
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+
