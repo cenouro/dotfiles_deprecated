@@ -16,4 +16,10 @@
   loop:
     - { src: '{{ PWD }}/zshenv', dest: '{{ HOME }}/.zshenv' }
     - { src: '{{ PWD }}/zshrc', dest: '{{ XDG_CONFIG_HOME }}/zsh/.zshrc' }
+
+- name: 'zsh : Set as default shell'
+  ansible.builtin.shell:
+    cmd: 'chsh -s $(which zsh) {{ ansible_env.USER }}'
+  become: yes
+  when: ansible_user_shell | regex_search('zsh') == none
 ...
