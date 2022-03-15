@@ -2,8 +2,10 @@ require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 
     use 'pearofducks/ansible-vim'
+    use 'tpope/vim-bundler'
     use 'tpope/vim-fugitive'
     use 'tpope/vim-projectionist'
+    use 'tpope/vim-rake'
     use 'tpope/vim-sensible'
 
     use {
