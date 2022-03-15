@@ -3,6 +3,7 @@ require('packer').startup(function()
 
     use 'pearofducks/ansible-vim'
     use 'tpope/vim-fugitive'
+    use 'tpope/vim-projectionist'
     use 'tpope/vim-sensible'
 
     use {
