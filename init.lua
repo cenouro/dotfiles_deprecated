@@ -10,7 +10,15 @@ require('packer').startup(function()
 
     use {
         'neovim/nvim-lspconfig',
-        config = function() vim.opt.signcolumn = 'yes' end
+        config = function()
+            vim.opt.signcolumn = 'yes'
+            require('lspconfig').sorbet.setup({
+                on_attach = on_attach,
+                -- The following flag will be the default in neovim 0.7+
+                flags = { debounce_text_changes = 150, },
+                cmd = {'bundle', 'exec', 'srb', 'tc', '--lsp', '--disable-watchman'}
+            })
+        end
     }
     use {
         'itchyny/lightline.vim',
@@ -88,13 +96,4 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
-
-require'lspconfig'.sorbet.setup({
-    on_attach = on_attach,
-    flags = {
-        -- This will be the default in neovim 0.7+
-        debounce_text_changes = 150,
-    },
-    cmd = {'bundle', 'exec', 'srb', 'tc', '--lsp', '--disable-watchman'}
-})
 
