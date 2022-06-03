@@ -15,6 +15,12 @@
     dest: '{{ XDG_CONFIG_HOME }}/nvim/init.lua'
     state: link
 
+- name: 'nvim : Link lua directory'
+  ansible.builtin.file:
+    src: '{{ PWD }}/lua'
+    dest: '{{ XDG_CONFIG_HOME }}/nvim/lua'
+    state: link
+
 - name: 'nvim : Install packer.nvim'
   ansible.builtin.git:
     repo: https://github.com/wbthomason/packer.nvim
