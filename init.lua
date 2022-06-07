@@ -27,6 +27,16 @@ require('packer').startup(function(use)
             vim.fn['one#highlight']('Whitespace', 'be5046', 'd19a66', '')
         end
     }
+    use {
+        'hrsh7th/nvim-cmp',
+        requires = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline'
+        },
+        config = function() require('config/nvim-cmp') end
+    }
 end)
 
 vim.cmd([[
