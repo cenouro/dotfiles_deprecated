@@ -37,6 +37,8 @@ require('packer').startup(function(use)
         },
         config = function() require('config/nvim-cmp') end
     }
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
 end)
 
 vim.cmd([[
